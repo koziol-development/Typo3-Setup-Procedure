@@ -86,6 +86,20 @@ detect_os() {
 			;;
 		i*86:Linux:*:*)
 			OS=gnu-linux
+			OS_DIST=$( echo $UNAME_VERSION | tr '[A-Z]' '[a-z]' )
+			case $OS_DIST in
+				*ubuntu*)
+					OS=linux
+					OS_TYPE=debian
+					OS_DIST=ubuntu
+					PACKAGE_SEARCH='dkpg -i | grep -i'
+					;;
+				*)
+					OS_TYPE=unknown
+					OS_DIST=unknown
+					;;	
+			esac
+			OS=${OS_DIST}-${OS}
 			;;
 		*:Linux:*:*)
 			OS=some-linux
