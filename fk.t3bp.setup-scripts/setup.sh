@@ -4,8 +4,9 @@
 # http://www.ajado.com/blog/how-to-set-permissions-for-typo3-on-the-webserver/
 # 
 
-
+# Set variables
 WORKING_DIR="${PWD}/"
+SCRIPT_DIR=$(dirname $0)/
 SOURCES_DIR=~/Software/Development/CMS/Typo3/
 T3SOURCE_DIR="${SOURCES_DIR}typo3_src"
 
@@ -15,6 +16,16 @@ WEBSERVER_GROUP=_www
 FILESYSTEM_USER=falcongoat
 FILESYSTEM_GROUP=staff
 
+. ${SCRIPT_DIR}functions.sh
+
+echo
+echo "### Typo3 Setup Procedure ###"
+echo
+
+
+detect_os
+
+exit
 
 # Copy the dummy-package's contents to the working directory
 cp -r ${SOURCES_DIR}dummy-4.6.0/ ${WORKING_DIR}.

@@ -2,8 +2,11 @@
 
 The steps described here aim at being an universal setup guide for Typo3. Starting from scratch we check prerequisites, create an empty directory to work in, copy all needed files, set correct file/directory permissions, adapt Apache settings etc.
 
-## Prerequisites ##
-	
+1. [Prerequisites](#prerequisites)
+2. [Configuration](#configuration)
+
+## <a id="prerequisites" />Prerequisites ##
+
 #### **200MB or more** of disk space ####
 #### **Apache 2.x** with the following extensions enabled: ####
 - mod\_expires
@@ -42,7 +45,25 @@ The steps described here aim at being an universal setup guide for Typo3. Starti
 
 ## Setting up the Webserver root directory ##
 
-#### Dateisystem-Layout ####
+#### Filesystem-Layout ####
+
+**The challenge**
+
+There are several issues that have to be considered:
+
+1.	backend users should be able to edit files in fileadmin through the filelist module
+2.	FTP users should be able to edit files in the fileadmin through FTP
+3.	developers want to edit files in extensions directly on the server
+4.	TYPO3 needs write permissions for the typo3conf/ext directory to enable the installation of extensions on the server
+5.	attackers should not be able to rewrite/delete system or extension files
+ 	
+ 	(actually they should not be able to rewrite/delete ANY files, but changing PHP code on the server is especially dangerous, because attackers at this point could take over your whole server)
+6.	in case an intruder gets access to the server (e.g. by finding out the ftp-account data of your customer), you want as few files as possible to be affected by the attack.
+
+Don't forget to set the typo3conf/ext directory read-only for the www-data user when going public with your website- it will narrow down the possible targets for attackers!
+
+	chown -R ajado:ajado typo3conf/ext
+
 -	typo3\_xxx/ (repo)
 	-	fileadmin/ (repo)
 		-	...
@@ -55,7 +76,7 @@ The steps described here aim at being an universal setup guide for Typo3. Starti
 	-	typo3temp/ (ignore)
 	-	uploads/
 
-## Configuration ##
+## <a id="configuration" />Configuration ##
 #### UTF-8 ####
 ##### Database #####
 MySQL **up to 5.5.3**
