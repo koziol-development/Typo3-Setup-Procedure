@@ -4,6 +4,8 @@
 # http://www.ajado.com/blog/how-to-set-permissions-for-typo3-on-the-webserver/
 # 
 
+clear
+
 # Set variables
 WORKING_DIR="${PWD}/"
 SCRIPT_DIR=$(dirname $0)/
@@ -19,7 +21,12 @@ FILESYSTEM_GROUP=staff
 . ${SCRIPT_DIR}functions.sh
 
 echo
-echo "### Typo3 Setup Procedure ###"
+echo "---------------------"
+echo "Typo3 Setup Procedure"
+echo "====================="
+echo "IMPORTANT:"
+echo "This script checks in no way, whether Apache or MySQL are installed. This is taken as a given, since we try to set up Typo3 here."
+echo "In the current version the script is assuming that it is called from the root directory (webroot) of the future Typo3 installation."
 echo
 
 
