@@ -100,11 +100,11 @@ The following is taken from the [Typo3 Security Cookbook](http://typo3.org/filea
 > 
 > -	make sure to revoke all WRITE privileges in ``typo3_src`` for the web server’s user account
 > -	set ownership and umask in htdocs to appropriate values (differs for the various subdirectories!)
-> -	paranoid’s setting: Place ``localconf.php`` outside of htdocs by changing typo3conf/localconf.php to the following:
-> 
-> 		<?php
-> 			require("<directory outside htdocs>/localconf.php");
-> 		?>
+> -	paranoid’s setting: Place ``localconf.php`` outside of htdocs by changing ``typo3conf/localconf.php`` to the following:
+>
+>			<?php
+>				require("<directory outside htdocs>/localconf.php");
+>			?>
 > 
 > ---
 >
