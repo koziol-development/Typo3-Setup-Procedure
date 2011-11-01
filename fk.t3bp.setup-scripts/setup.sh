@@ -2,7 +2,7 @@
 
 # Inspired by:
 # http://www.ajado.com/blog/how-to-set-permissions-for-typo3-on-the-webserver/
-# 
+# http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob;f=config.guess;hb=HEAD
 
 clear
 
