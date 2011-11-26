@@ -51,7 +51,6 @@ The steps described here aim at being an universal setup guide for Typo3. Starti
 
 
 
-
 ## Security<a id="security" />
 
 The following is taken from the [Typo3 Security Cookbook](http://typo3.org/fileadmin/security-team/typo3_security_cookbook_v-0.5.pdf)
