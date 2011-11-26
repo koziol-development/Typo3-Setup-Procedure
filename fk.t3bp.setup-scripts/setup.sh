@@ -20,6 +20,15 @@ FILESYSTEM_GROUP=staff
 
 . ${SCRIPT_DIR}functions.sh
 
+if [ $(id -u) = 0 ]; then
+	echo "We are ROOT"
+else
+	echo "You need to run this script as ROOT. Try 'sudo' or something similar."
+	echo "Exiting..."
+	echo
+	exit
+fi
+
 echo
 echo "---------------------"
 echo "Typo3 Setup Procedure"
