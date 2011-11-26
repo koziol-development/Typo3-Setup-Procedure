@@ -150,6 +150,18 @@ test_single_binary() {
 	test -x $1/$0
 	return $?
 }
+
+test_sources() {
+	local SOURCES_DIR=$1
+	echo "Checking in $SOURCES_DIR for Typo3 packages..."
+	local SOURCES_DIR_CONTENTS=($(ls -1F $SOURCES_DIR))
+	echo ${SOURCES_DIR_CONTENTS[*]}
+}
+
+#######################
+## Output Prettifier ##
+#######################
+
 echo_underline() {
 	local MESSAGE=$1
 	local LINE_NUM=$2 || local LINE_NUM=0
