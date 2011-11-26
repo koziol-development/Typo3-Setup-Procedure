@@ -29,8 +29,9 @@ echo "This script checks in no way, whether Apache or MySQL are installed. This 
 echo "In the current version the script is assuming that it is called from the root directory (webroot) of the future Typo3 installation."
 echo
 
-
 detect_os
+
+test_sources $SOURCES_DIR
 
 exit
 
